@@ -4,35 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Station</title>
-    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="/assets/images/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
     
 </head>
 <body>
+    <!-- header -->
     <header>
         <h1> Weather Station</h1>
     </header>
 
     <div class="container">
-
+    
     <div class="row">
+        <!-- input field for city name -->
         <div class="col col-md-4">
-            Input form
-            <input placeholder="enter city name"/> 
+            Search for a city:
+            <input id="input1" placeholder="Enter city name"/> 
+            <button type="button" class="btn btn-primary">Search</button>
             <br>
-            List of recently searched cities.
+            <!-- list of recently searched cities -->
+            <div>
+            <h8 id="h8">List of recently searched cities:</h8>
+            <ul class="list-group">
+                <!-- <li class="list-group-item"></li> -->
+            </ul>
+            </div>
         </div>
 
         <div class="col col-md-8">
-            <div class="row">
-                Display card
+            <!-- display today's weather -->
+            <div id="today" class="row">
+                Today's weather in: 
+                <div class="city"></div>
+                
+                <div class="date"></div>
+                
+                <div class="icon">
+                    <img class="icon2"/>
+                </div>
                 <br>
-                Weather forecast for the last searched city
+                <div class="temp">Temperature: </div>
+                <br>
+                <div class="humidity">Humidity: </div>
+                <br>
+                <div class="wind">Wind Speed: </div>
+                <br>
+                <div class="uv">UV Index: </div>
+                <br>
+                
             </div>
-
+            <!-- weather for the next 5 days -->
             <div class="row">
-                Weather forecast for the next 5 days
+                5-Day Forecast:
             </div>
 
         </div>
@@ -42,11 +67,13 @@
 
 
     </div>
-
+    <!-- optional sticky footer -->
     <footer id="sticky-footer">
         Piotr Dudek Copyright 2020
     </footer>
 
-<script src="script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/js/script.js"></script>
+
 </body>
 </html>
