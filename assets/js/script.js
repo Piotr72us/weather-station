@@ -47,8 +47,21 @@ function uvIndex(lat, lon) {
         method: "GET"
     }).then(function(response) {
         // console.log(response);
-        $(".uv").empty().append("UV Index: " + response.value.toFixed(1));
+        $(".uv").empty().removeClass("badge");
+        var uv = response.value.toFixed(1);
         
+        if(parseInt(uv) <= 2) {
+            $(".uv").addClass("badge badge-success");
+        }
+        else if (parseInt(uv) > 5) {
+            $(".uv").addClass("badge badge-danger");
+        }
+        else {
+            $(".uv").addClass("badge badge-warning");
+        }
+
+        $(".uv").append("UV Index: " + uv);
+
         $(".date").empty().append("(" + response.date_iso.split("T")[0] + ")");
     });
 }
@@ -61,12 +74,12 @@ function weatherSearch5(cityname) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#day1").append("(" + response.list[3].dt_txt.split(" ")[0] + ")");
-        $("#day1").append(response.list[3].main.temp);
-        $("#day1").append(response.list[3].main.humidity)
+        $("#day1").empty().append("(" + response.list[3].dt_txt.split(" ")[0] + ")");
+        $("#day1").empty().append(response.list[3].main.temp);
+        $("#day1").empty().append(response.list[3].main.humidity)
         var icon = $("<img>");
         icon.attr("src", "http://openweathermap.org/img/wn/" + response.list[3].weather[0].icon + "@2x.png");
-        $("#day1").append(icon);
+        $("#day1").empty().append(icon);
     });
 
 }
