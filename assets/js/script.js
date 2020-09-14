@@ -47,17 +47,22 @@ function uvIndex(lat, lon) {
         method: "GET"
     }).then(function(response) {
         // console.log(response);
-        $(".uv").empty().removeClass("badge");
+        $(".uv").empty().removeClass("red; yellow; green");
         var uv = response.value.toFixed(1);
         
-        if(parseInt(uv) <= 2) {
-            $(".uv").addClass("badge badge-success");
+        if (parseInt(uv) <= 2) {
+            document.querySelector(".uv").setAttribute('style', 'background-color: green !important; color: white');
+            // document.querySelector(".uv").setAttribute('class', 'rounded');
+            // $(".uv").addClass("badge badge-success !important");
         }
         else if (parseInt(uv) > 5) {
-            $(".uv").addClass("badge badge-danger");
+            document.querySelector(".uv").setAttribute('style', 'background-color: red !important; color: white');
+            // $(".uv").addClass("badge badge-danger !important");
         }
         else {
-            $(".uv").addClass("badge badge-warning");
+        // else (parseInt(uv) > 2 && parseInt(uv) <= 5) {
+            document.querySelector(".uv").setAttribute('style', 'background-color: yellow !important');
+            // $(".uv").addClass("badge badge-warning !important");
         }
 
         $(".uv").append("UV Index: " + uv);
