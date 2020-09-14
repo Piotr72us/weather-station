@@ -34,3 +34,8 @@ header {
 /* .col {
     border: solid 1px black;
 } */
+
+.info {
+    float: left;
+    clear: both;
+}
