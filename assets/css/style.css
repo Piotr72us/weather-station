@@ -1,5 +1,5 @@
 header {
-    background-color: gray;
+    background-color: rgb(50, 63, 105);
     color: white;
     margin: auto;
     text-align: center;
@@ -20,7 +20,7 @@ header {
     bottom: 0px;
     position: absolute;
     width: 100%;
-    background-color: gray;
+    background-color: rgb(50, 63, 105);
     color: white;
     font-size: 24px;
     padding: 10px;
@@ -38,4 +38,9 @@ header {
 .info {
     float: left;
     clear: both;
+}
+
+.days {
+    width: 20vw;
+
 }

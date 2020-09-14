@@ -11,60 +11,88 @@
 </head>
 <body>
     <!-- header -->
-    <header>
+    <header class="rounded">
         <h1> Weather Station</h1>
     </header>
 
     <div class="container">
     
-    <div class="row">
-        <!-- input field for city name -->
-        <div class="col col-md-4">
-            Search for a city:
-            <input id="input1" placeholder="Enter city name"/> 
-            <button type="button" class="btn btn-primary">Search</button>
-            <br>
-            <!-- list of recently searched cities -->
-            <div>
-            <h8 id="h8">List of recently searched cities:</h8>
-            <ul class="list-group">
-                <!-- <li class="list-group-item"></li> -->
-            </ul>
-            </div>
-        </div>
-
-        <div class="col col-md-8">
-            <!-- display today's weather -->
-            <div id="today" class="row">
-                <h4 class="city"></h4>
-                
-                <div class="date"></div>
-                
-                <div class="icon">
-                    <img class="icon2"/>
+        <div class="row">
+            <!-- input field for city name -->
+            <div class="col col-md-4">
+                Search for a city:
+                <input id="input1" placeholder="Enter city name"/> 
+                <button type="button" class="btn btn-primary">Search
+                    <!-- <i class="fas fa-search"></i> -->
+                </button>
+                <br>
+                <!-- list of recently searched cities -->
+                <div>
+                <h8 id="h8">List of recently searched cities:</h8>
+                <ul id="searchedCities" class="list-group">
+                    <!-- <li class="list-group-item"></li> -->
+                </ul>
                 </div>
-                <br>
-                <div class="info temp"></div>
-                <br>
-                <div class="info humidity"></div>
-                <br>
-                <div class="info wind"></div>
-                <br>
-                <div class="info uv"></div>
-                <br>
-                
-            </div>
-            <!-- weather for the next 5 days -->
-            <div class="row">
-                5-Day Forecast:
             </div>
 
+            <div class="col col-md-8">
+                <!-- display today's weather -->
+                <div id="today" class="row">
+                    <div class="col col-md-12">
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <h4 class="city"></h4>
+                                
+                                <h4 class="date"></h4>
+                                
+                                <div class="icon">
+                                    <img class="icon2"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <p class="info temp"></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <p class="info humidity"></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <p class="info wind"></p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <p class="info uv"></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                        <!-- weather for the next 5 days -->
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <h4>5-Day Forecast:</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-2 bg-primary rounded days" id="day1"></div>
+                            <div class="col col-md-2 bg-primary rounded days" id="day2"></div>
+                            <div class="col col-md-2 bg-primary rounded days" id="day3"></div>
+                            <div class="col col-md-2 bg-primary rounded days" id="day4"></div>
+                            <div class="col col-md-2 bg-primary rounded days" id="day5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-
-
     </div>
     <!-- optional sticky footer -->
     <!-- <footer id="sticky-footer">
@@ -72,6 +100,7 @@
     </footer> -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="/assets/js/script.js"></script>
 
 </body>

@@ -2,6 +2,8 @@
 var myAPI = "af6923e95cbb6c53be8ceb07c2b776e5"
 //onload - display last searched weather in today's weather
 
+var savedHistory = JSON.parse(localStorage.getItem("searched")) || [];
+
 // function weatherSearch to send AJAX query for today's weather for searched city
     // temperature, humidity, wind, UV index with color
     // append results to today's weather div
@@ -44,13 +46,30 @@ function uvIndex(lat, lon) {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
-        $(".uv").append("UV Index: " + response.value);
-        $(".date").append(response.date_iso);
+        // console.log(response);
+        $(".uv").empty().append("UV Index: " + response.value.toFixed(1));
+        
+        $(".date").empty().append("(" + response.date_iso.split("T")[0] + ")");
     });
 }
 
+function weatherSearch5(cityname) {
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityname + "&appid=" + myAPI;
 
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        $("#day1").append("(" + response.list[3].dt_txt.split(" ")[0] + ")");
+        $("#day1").append(response.list[3].main.temp);
+        $("#day1").append(response.list[3].main.humidity)
+        var icon = $("<img>");
+        icon.attr("src", "http://openweathermap.org/img/wn/" + response.list[3].weather[0].icon + "@2x.png");
+        $("#day1").append(icon);
+    });
+
+}
 //function weatherSearch5days - send AJAX query for weather 5 days in advance
     // append results to 5-day div
 
@@ -59,5 +78,18 @@ function uvIndex(lat, lon) {
 $(".btn").on("click", function(){
     var cityname = $("#input1").val().trim();
     weatherSearch(cityname);
+    weatherSearch5(cityname);
     $("#input1").val("");
+    savedHistory.push(cityname);
+    localStorage.setItem("searched", JSON.stringify(savedHistory));
+    showHistory();
 });
+
+
+function showHistory() {
+
+}
+
+// var x = $("#searchedCities");
+// console.log(x);
+//UV index according to US EPA: https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=3%20to%205%3A%20Moderate,%2C%20and%20UV%2Dblocking%20sunglasses.
