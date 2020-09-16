@@ -14,7 +14,7 @@
     <header class="rounded">
         <h1> Weather Station</h1>
     </header>
-
+    <br>
     <div class="container">
     
         <div class="row">
@@ -28,6 +28,7 @@
                 <br>
                 <!-- list of recently searched cities -->
                 <div>
+                    <br>
                 <h8 id="h8">List of recently searched cities:</h8>
                 <ul id="searchedCities" class="list-group">
                     <!-- <li class="list-group-item"></li> -->
@@ -38,7 +39,8 @@
             <div class="col col-md-8">
                 <!-- display today's weather -->
                 <div id="today" class="row">
-                    <div class="col col-md-12">
+                    <div class="col col-md-12" id="card">
+                        <br>
                         <div class="row">
                             <div class="col col-md-12">
                                 <h4 class="city"></h4>
@@ -79,15 +81,16 @@
                         <!-- weather for the next 5 days -->
                         <div class="row">
                             <div class="col col-md-12">
+                                <br>
                                 <h4>5-Day Forecast:</h4>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col col-md-2 bg-primary rounded days" id="day1"></div>
-                            <div class="col col-md-2 bg-primary rounded days" id="day2"></div>
-                            <div class="col col-md-2 bg-primary rounded days" id="day3"></div>
-                            <div class="col col-md-2 bg-primary rounded days" id="day4"></div>
-                            <div class="col col-md-2 bg-primary rounded days" id="day5"></div>
+                            <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
+                            <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
+                            <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
+                            <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
+                            <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
                         </div>
                     </div>
                 </div>

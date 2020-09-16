@@ -2,7 +2,7 @@
 var myAPI = "af6923e95cbb6c53be8ceb07c2b776e5"
 //onload - display last searched weather in today's weather
 
-var savedHistory = JSON.parse(localStorage.getItem("searched")) || [];
+var savedHistory = JSON.parse(localStorage.getItem("searches")) || [];
 
 // function weatherSearch to send AJAX query for today's weather for searched city
     // temperature, humidity, wind, UV index with color
@@ -79,12 +79,28 @@ function weatherSearch5(cityname) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        $("#day1").empty().append("(" + response.list[3].dt_txt.split(" ")[0] + ")");
-        $("#day1").empty().append(response.list[3].main.temp);
-        $("#day1").empty().append(response.list[3].main.humidity)
-        var icon = $("<img>");
-        icon.attr("src", "http://openweathermap.org/img/wn/" + response.list[3].weather[0].icon + "@2x.png");
-        $("#day1").empty().append(icon);
+        var show5days = document.querySelectorAll(".future");
+        for (i = 0; i < show5days.length; i++) {
+            show5days[i].textContent = "";
+            var index = (i * 8) + 3;
+            var dateEl = $("<p>");
+            dateEl.textContent = "(" + response.list[index].dt_txt + ")";
+            show5days[i].append(dateEl);
+            
+
+            var iconEl = document.createElement("img");
+            iconEl.setAttribute("src","https://openweathermap.org/img/wn/" + response.list[index].weather[0].icon + ".png");
+            show5days[i].append(iconEl);
+
+
+
+            // $(".future").empty().append("(" + response.list[3].dt_txt.split(" ")[0] + ")");
+            // $(".future").empty().append(response.list[3].main.temp);
+            // $(".future").empty().append(response.list[3].main.humidity)
+            // var icon = $("<img>");
+            // icon.attr("src", "http://openweathermap.org/img/wn/" + response.list[3].weather[0].icon + "@2x.png");
+            // $(".future").empty().append(icon);
+        }
     });
 
 }
@@ -99,7 +115,7 @@ $(".btn").on("click", function(){
     weatherSearch5(cityname);
     $("#input1").val("");
     savedHistory.push(cityname);
-    localStorage.setItem("searched", JSON.stringify(savedHistory));
+    localStorage.setItem("searches", JSON.stringify(savedHistory));
     showHistory();
 });
 

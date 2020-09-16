@@ -60,3 +60,8 @@ header {
 .green {
     background-color: green;
 }
+
+#card {
+    border: 1px solid rgb(179, 177, 177);
+    border-radius: 10px;
+}
