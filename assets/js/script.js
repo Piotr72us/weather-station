@@ -11,10 +11,10 @@ var savedHistory = JSON.parse(localStorage.getItem("searches")) || [];
     // append results to today's weather div
     // append search name to the list of searched cities
 
-function weatherSearch (citynames) {
+function weatherSearch (cityname) {
     // console.log(cityname);
     // var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=5106834&APPID=af6923e95cbb6c53be8ceb07c2b776e5";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citynames + "&appid=" + myAPI;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&appid=" + myAPI;
     
     $.ajax({
         url: queryURL,
