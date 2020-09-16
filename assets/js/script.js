@@ -11,10 +11,10 @@ var savedHistory = JSON.parse(localStorage.getItem("searches")) || [];
     // append results to today's weather div
     // append search name to the list of searched cities
 
-function weatherSearch (cityname) {
+function weatherSearch (citynames) {
     // console.log(cityname);
     // var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=5106834&APPID=af6923e95cbb6c53be8ceb07c2b776e5";
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&appid=" + myAPI;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citynames + "&appid=" + myAPI;
     
     $.ajax({
         url: queryURL,
@@ -135,12 +135,14 @@ $(".btn").on("click", function(){
 function showHistory() {
     document.querySelector("#searchedCities").textContent = "";
     for (var i = 0; i < savedHistory.length; i++) {
-        var recentEl = document.createElement("li");
+        var recentEl = document.createElement("input");
         recentEl.setAttribute("class", "list-group-item");
-        recentEl.textContent = savedHistory[i];
+        recentEl.setAttribute("type","text");
+        recentEl.setAttribute("readonly",true);
+        recentEl.setAttribute("value", savedHistory[i]);
         recentEl.addEventListener("click", function() {
-            weatherSearch(recentEl.textContent);
-        })
+            weatherSearch(recentEl.value);
+        });
         document.querySelector("#searchedCities").prepend(recentEl);
 
         // var liEl = $("<li>").attr("class", "list-group-item").text(response.name);
