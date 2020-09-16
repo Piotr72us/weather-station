@@ -51,7 +51,9 @@ function uvIndex(lat, lon) {
         // console.log(response);
         $(".uv").empty().removeClass("red; yellow; green");
         var uv = response.value.toFixed(1);
-        
+        //UV index changes color: low = green, moderate = yellow, severe = red;
+        //UV index according to US EPA: https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=3%20to%205%3A%20Moderate,%2C%20and%20UV%2Dblocking%20sunglasses.
+
         if (parseInt(uv) <= 2) {
             document.querySelector(".uv").setAttribute('style', 'background-color: green !important; color: white');
             // document.querySelector(".uv").setAttribute('class', 'rounded');
@@ -140,8 +142,10 @@ function showHistory() {
         recentEl.setAttribute("type","text");
         recentEl.setAttribute("readonly",true);
         recentEl.setAttribute("value", savedHistory[i]);
+        // console.log(recentEl.value);
         recentEl.addEventListener("click", function() {
             weatherSearch(recentEl.value);
+            console.log(recentEl.value);
         });
         document.querySelector("#searchedCities").prepend(recentEl);
 
@@ -158,7 +162,6 @@ if (savedHistory.length > 0) {
 }
 // var x = $("#searchedCities");
 // console.log(x);
-//UV index according to US EPA: https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=3%20to%205%3A%20Moderate,%2C%20and%20UV%2Dblocking%20sunglasses.
 
 }
 
