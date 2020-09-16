@@ -14,7 +14,7 @@ function weatherSearch (cityname) {
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
         var windMph = (response.wind.speed * 2.23694);
         $(".city").empty().append(response.name);
-        $(".icon2").empty().attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
+        $(".icon").empty().attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
         $(".temp").empty().append("Temperature: " + tempF.toFixed() + " °F");
         $(".humidity").empty().append("Humidity: " + response.main.humidity + "%");
         $(".wind").empty().append("Wind Speed: " + windMph.toFixed(1) + " mph");
@@ -94,6 +94,7 @@ $(".btn").on("click", function(){
     var cityname = $("#input1").val().trim();
     weatherSearch(cityname);
     weatherSearch5(cityname);
+    $("#days5").removeClass("hidden");
     $("#input1").val("");
     savedHistory.push(cityname);
     localStorage.setItem("searches", JSON.stringify(savedHistory));
