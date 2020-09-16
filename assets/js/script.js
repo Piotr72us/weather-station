@@ -1,4 +1,6 @@
 // JavaScript
+function load() {
+
 var myAPI = "af6923e95cbb6c53be8ceb07c2b776e5"
 //onload - display last searched weather in today's weather
 
@@ -27,8 +29,8 @@ function weatherSearch (cityname) {
         $(".humidity").empty().append("Humidity: " + response.main.humidity + "%");
         $(".wind").empty().append("Wind Speed: " + windMph.toFixed(1) + " mph");
 
-        var liEl = $("<li>").attr("class", "list-group-item").text(response.name);
-        $(".list-group").append(liEl);
+        // var liEl = $("<li>").attr("class", "list-group-item").text(response.name);
+        // $(".list-group").append(liEl);
         
         var lat = response.coord.lat;
         var lon = response.coord.lon;
@@ -83,8 +85,9 @@ function weatherSearch5(cityname) {
         for (i = 0; i < show5days.length; i++) {
             show5days[i].textContent = "";
             var index = (i * 8) + 3;
-            var dateEl = $("<p>");
-            dateEl.textContent = "(" + response.list[index].dt_txt + ")";
+            var dateEl = document.createElement("p");
+            dateEl.setAttribute("class", "tempFont");
+            dateEl.textContent = "(" + response.list[index].dt_txt.split(" ")[0] + ")";
             show5days[i].append(dateEl);
             
 
@@ -92,7 +95,16 @@ function weatherSearch5(cityname) {
             iconEl.setAttribute("src","https://openweathermap.org/img/wn/" + response.list[index].weather[0].icon + ".png");
             show5days[i].append(iconEl);
 
+            var tempEl = document.createElement("p");
+            tempEl.setAttribute("class", "tempFont");
+            var tempF = (response.list[index].main.temp - 273.15) * 1.80 + 32;
+            tempEl.textContent = "Temp: " + tempF.toFixed() + " °F";
+            show5days[i].append(tempEl);
 
+            var humEl = document.createElement("p");
+            humEl.setAttribute("class", "tempFont");
+            humEl.innerHTML = "Humidity: " + response.list[index].main.humidity + "%";
+            show5days[i].append(humEl);
 
             // $(".future").empty().append("(" + response.list[3].dt_txt.split(" ")[0] + ")");
             // $(".future").empty().append(response.list[3].main.temp);
@@ -121,9 +133,31 @@ $(".btn").on("click", function(){
 
 
 function showHistory() {
+    document.querySelector("#searchedCities").textContent = "";
+    for (var i = 0; i < savedHistory.length; i++) {
+        var recentEl = document.createElement("li");
+        recentEl.setAttribute("class", "list-group-item");
+        recentEl.textContent = savedHistory[i];
+        recentEl.addEventListener("click", function() {
+            weatherSearch(recentEl.textContent);
+        })
+        document.querySelector("#searchedCities").prepend(recentEl);
+
+        // var liEl = $("<li>").attr("class", "list-group-item").text(response.name);
+        // $(".list-group").append(liEl);
+    }
 
 }
 
+showHistory();
+
+if (savedHistory.length > 0) {
+    weatherSearch(savedHistory[savedHistory.length - 1]);
+}
 // var x = $("#searchedCities");
 // console.log(x);
 //UV index according to US EPA: https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=3%20to%205%3A%20Moderate,%2C%20and%20UV%2Dblocking%20sunglasses.
+
+}
+
+load();
