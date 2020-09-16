@@ -1,15 +1,15 @@
 # Weather Station 🌥
 
-This application will help you keep track of the weather in any place you go to
+This application will help you keep track of the current weather in any place you go to
 
-### GitHub Page with [Live Version!] (https://piotr72us.github.io/weatherStation/)
+### GitHub Page with [Live Version!](https://piotr72us.github.io/weatherStation/index.html)
 
 ### Programming Languages Used:
 ---
 ```
-* `JavaScript`: 54.5%
-* `CSS`: 7.9%
-* `HTML`: 37.6%
+* JavaScript: 54.5%
+* CSS: 7.9%
+* HTML: 37.6%
 ```
 
 ### About this application:
