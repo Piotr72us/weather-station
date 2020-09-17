@@ -93,7 +93,7 @@ $(".btn").on("click", function(){
     var cityname = $("#input1").val().trim();
     weatherSearch(cityname);
     weatherSearch5(cityname);
-    $("#days5").removeClass("hidden");
+    $(".hidden").removeClass("hidden");
     $("#input1").val("");
     savedHistory.push(cityname);
     localStorage.setItem("searches", JSON.stringify(savedHistory));
@@ -124,6 +124,7 @@ showHistory();
 
 // check if saved history is not empty; if it is not empty call functions for weather forecast and for a 5-day forecast
 if (savedHistory.length > 0) {
+    $(".hidden").removeClass("hidden");
     weatherSearch(savedHistory[savedHistory.length - 1]);
     weatherSearch5(savedHistory[savedHistory.length - 1]);
 }
