@@ -23,7 +23,6 @@ function weatherSearch (cityname) {
         var lon = response.coord.lon;
 
         uvAndTime(lat, lon);
-
     });
 }
 
@@ -53,7 +52,7 @@ function uvAndTime(lat, lon) {
     });
 }
 
-//function to search a 5-day weather forecast
+//function to search for a 5-day weather forecast
 function weatherSearch5(cityname) {
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityname + "&appid=" + myAPI;
 
@@ -64,6 +63,7 @@ function weatherSearch5(cityname) {
         var show5days = document.querySelectorAll(".future");
         for (i = 0; i < show5days.length; i++) {
             show5days[i].textContent = "";
+            // var "index" below will grab weather at every day at 3:00pm
             var index = (i * 8) + 3;
             var dateEl = document.createElement("p");
             dateEl.setAttribute("class", "tempFont");
@@ -86,7 +86,6 @@ function weatherSearch5(cityname) {
             show5days[i].append(humEl);
         }
     });
-
 }
 
 // call functions weatherSearch() and weatherSearch5() on click to display today's weather and 5-day forecast
@@ -117,11 +116,16 @@ function showHistory() {
 // function to show searched history on click
 $("#searchedCities").on("click", "input", function() {
     weatherSearch($(this).val());
+    weatherSearch5($(this).val());
         });
 
+// call function to display searched cities
 showHistory();
+
+// check if saved history is not empty; if it is not empty call functions for weather forecast and for a 5-day forecast
 if (savedHistory.length > 0) {
     weatherSearch(savedHistory[savedHistory.length - 1]);
+    weatherSearch5(savedHistory[savedHistory.length - 1]);
 }
 
 //call weather Search function

@@ -7,9 +7,9 @@ This application will help you keep track of the current weather in any place yo
 ### Programming Languages Used:
 ---
 ```
-* JavaScript: 54.5%
-* CSS: 7.9%
-* HTML: 37.6%
+* JavaScript: 50.4%
+* CSS: 6.4%
+* HTML: 43.2%
 ```
 
 ### About this application:
@@ -28,7 +28,7 @@ You will also see a 5-day weather forecast, including the following:
 + temperature,
 + humidity.
 
-There is also a list of the recently searched cities on the left side of your screen - for your convenience.
+There is also a list of the recently searched cities on the left side of your screen for your convenience. If you click on the recently searched city name, the weather forecast for that city will be displayed.
 
 ### Quick glance at my Weather Station:
 ---
