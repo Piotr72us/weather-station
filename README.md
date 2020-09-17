@@ -7,9 +7,9 @@ This application will help you keep track of the current weather in any place yo
 ### Programming Languages Used:
 ---
 ```
-* JavaScript: 50.4%
-* CSS: 6.4%
-* HTML: 43.2%
+* JavaScript: 51.9%
+* CSS: 6.2%
+* HTML: 41.9%
 ```
 
 ### About this application:
