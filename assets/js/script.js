@@ -101,7 +101,7 @@ $(".btn").on("click", function(){
     showHistory();
 });
 
-// show recently searched cities
+// function to show recently searched cities
 function showHistory() {
     document.querySelector("#searchedCities").textContent = "";
     for (var i = 0; i < savedHistory.length; i++) {
@@ -110,14 +110,14 @@ function showHistory() {
         recentEl.setAttribute("type","text");
         recentEl.setAttribute("readonly",true);
         recentEl.setAttribute("value", savedHistory[i]);
-        recentEl.addEventListener("click", function() {
-            weatherSearch(recentEl.value);
-            console.log(recentEl.value);
-            weatherSearch(recentEl.value);
-        });
         document.querySelector("#searchedCities").prepend(recentEl);
     }
 }
+
+// function to show searched history on click
+$("#searchedCities").on("click", "input", function() {
+    weatherSearch($(this).val());
+        });
 
 showHistory();
 if (savedHistory.length > 0) {
@@ -125,4 +125,4 @@ if (savedHistory.length > 0) {
 }
 
 //call weather Search function
-weatherSearch();
+// weatherSearch();
