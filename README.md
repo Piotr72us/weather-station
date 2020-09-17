@@ -1,4 +1,4 @@
-# Weather Station 🌥
+# 🌥 Weather Station 🌥
 
 This application will help you keep track of the current weather in any place you go to
 
