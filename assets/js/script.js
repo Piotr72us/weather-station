@@ -11,6 +11,7 @@ function weatherSearch (cityname) {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
+        console.log(response);
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
         var windMph = (response.wind.speed * 2.23694);
         $(".city").empty().append(response.name);
@@ -34,6 +35,8 @@ function uvAndTime(lat, lon) {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
+        console.log(response);
+
         $(".uv").empty().removeClass("red; yellow; green");
         var uv = response.value.toFixed(1);
         //UV index changes color: low = green, moderate = yellow, severe = red;
