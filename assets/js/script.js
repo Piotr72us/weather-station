@@ -1,7 +1,7 @@
 // JavaScript
 
 var myAPI = "af6923e95cbb6c53be8ceb07c2b776e5"
-var savedHistory = JSON.parse(localStorage.getItem("searches")) || [];
+var savedHistory = JSON.parse(localStorage.getItem("searches")) || ["New York"];
 
 //function to search and display today's weather
 function weatherSearch (cityname) {
