@@ -2,7 +2,7 @@
 
 This application will help you keep track of the current weather in any place you go to
 
-### GitHub Page with [Live Version!](https://piotr72us.github.io/weather-station/index.html)
+### GitHub Page with [Live Version!](https://peterdudek.github.io/weather-station/index.html)
 
 ### Programming Languages Used:
 ---
