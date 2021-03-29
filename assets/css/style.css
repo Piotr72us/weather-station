@@ -1,5 +1,10 @@
+body {
+    background-color: rgb(127, 128, 133);
+    max-height: 100vh;
+}
+
 header {
-    background-color: rgb(50, 63, 105);
+    background-color: rgb(48, 49, 53);
     color: white;
     margin: auto;
     text-align: center;
@@ -21,19 +26,19 @@ header {
 }
 
 .red {
-    background-color: red;
+    background-color: rgb(177, 6, 6);
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: rgb(224, 224, 0);
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(26, 99, 26);
 }
 
 #card {
-    border: 1px solid rgb(179, 177, 177);
+    background-color: rgb(199, 194, 194);
     border-radius: 10px;
 }
 .tempFont {
@@ -41,7 +46,7 @@ header {
 }
 
 .col-md-4 {
-    background-color: rgb(243, 241, 241);
+    background-color: rgb(199, 194, 194);
     border-radius: 10px;
 }
 
@@ -62,4 +67,8 @@ header {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+}
+
+.colHeight {
+    max-height: 80vh;
 }

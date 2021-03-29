@@ -13,14 +13,15 @@
 <body>
     <!-- header -->
     <header class="rounded">
-        <h1> Weather Station</h1>
+        <h1>Weather Station</h1>
     </header>
     <br>
     <div class="container">
     
         <div class="row">
             <!-- input field for city name -->
-            <div class="col col-md-4">
+            <div class="col col-md-4 colHeight">
+                <br>
                 <h4>Search for a city:</h4>
                 <input id="input1" placeholder="Enter city name"/> 
                 <button type="button" class="btn btn-primary">
@@ -37,7 +38,11 @@
                 </div>
             </div>
 
-            <div class="col col-md-8">
+            <div class="col col-md-1">
+
+            </div>
+
+            <div class="col col-md-7">
                 <!-- display today's weather -->
                 <div id="today" class="row">
                     <div class="col col-md-12" id="card">
@@ -55,23 +60,8 @@
                         <div class="row">
                             <div class="col col-md-12">
                                 <p class="info temp"></p>
-                            </div>
-                        </div>
-                        <!-- humidity -->
-                        <div class="row">
-                            <div class="col col-md-12">
                                 <p class="info humidity"></p>
-                            </div>
-                        </div>
-                        <!-- wind -->
-                        <div class="row">
-                            <div class="col col-md-12">
                                 <p class="info wind"></p>
-                            </div>
-                        </div>
-                        <!-- uv index -->
-                        <div class="row">
-                            <div class="col col-md-12">
                                 <p class="info uv"></p>
                             </div>
                         </div>
@@ -84,11 +74,11 @@
                         </div>
                     </div>
                     <div class="row hidden">
-                        <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
-                        <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
-                        <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
-                        <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
-                        <div class="col bg-primary text-white ml-3 mb-3 rounded future"></div>
+                        <div class="col bg-dark text-white ml-3 mb-3 rounded future"></div>
+                        <div class="col bg-dark text-white ml-3 mb-3 rounded future"></div>
+                        <div class="col bg-dark text-white ml-3 mb-3 rounded future"></div>
+                        <div class="col bg-dark text-white ml-3 mb-3 rounded future"></div>
+                        <div class="col bg-dark text-white ml-3 mb-3 rounded future"></div>
                     </div>
                 </div>
             </div>
