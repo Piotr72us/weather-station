@@ -42,15 +42,15 @@ function uvAndTime(lat, lon) {
         //UV index changes color: low = green, moderate = yellow, severe = red;
         //UV index according to US EPA: https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=3%20to%205%3A%20Moderate,%2C%20and%20UV%2Dblocking%20sunglasses.
         if (parseInt(uv) <= 2) {
-            document.querySelector(".uv").setAttribute('style', 'background-color: green !important; color: white');
+            document.querySelector(".uv").setAttribute('style', 'background-color: green !important; color: white; border-radius: 3px');
         }
         else if (parseInt(uv) > 5) {
-            document.querySelector(".uv").setAttribute('style', 'background-color: red !important; color: white');
+            document.querySelector(".uv").setAttribute('style', 'background-color: red !important; color: white; border-radius: 3px');
         }
         else {
-            document.querySelector(".uv").setAttribute('style', 'background-color: yellow !important');
+            document.querySelector(".uv").setAttribute('style', 'background-color: yellow !important; border-radius: 3px');
         }
-        $(".uv").append("UV Index: " + uv);
+        $(".uv").append(" UV Index: " + uv + " ");
         $(".date").empty().append("(" + response.date_iso.split("T")[0] + ")");
     });
 }

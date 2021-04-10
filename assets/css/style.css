@@ -1,10 +1,12 @@
 body {
-    background-color: rgb(127, 128, 133);
-    max-height: 100vh;
+    /* background-color: rgb(127, 128, 133); */
+    background-image: url("../images/weather.jpg");
+    height: 100vh;
+    width: 100vw;
 }
 
 header {
-    background-color: rgb(48, 49, 53);
+    background-color: rgba(48, 49, 53, 0.4);
     color: white;
     margin: auto;
     text-align: center;
@@ -25,7 +27,7 @@ header {
 
 }
 
-.red {
+/* .red {
     background-color: rgb(177, 6, 6);
 }
 
@@ -35,10 +37,10 @@ header {
 
 .green {
     background-color: rgb(26, 99, 26);
-}
+} */
 
 #card {
-    background-color: rgb(199, 194, 194);
+    background-color: rgb(199, 194, 194, 0.6);
     border-radius: 10px;
 }
 .tempFont {
@@ -46,7 +48,7 @@ header {
 }
 
 .col-md-4 {
-    background-color: rgb(199, 194, 194);
+    background-color: rgb(199, 194, 194, 0.4);
     border-radius: 10px;
 }
 
@@ -59,7 +61,6 @@ header {
     display: none;
 }
 
-
 .centerme {
     position: absolute;
     top: 50%;
@@ -71,4 +72,9 @@ header {
 
 .colHeight {
     max-height: 80vh;
+    overflow: auto;
+}
+
+.uv {
+    padding: 0em 0.5em 0em 0.5em;
 }
